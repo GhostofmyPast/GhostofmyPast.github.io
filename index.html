@@ -6,7 +6,7 @@
     <title>Under Construction</title>
     <style>
         /* CSS code goes here */
-       body {
+        body {
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -47,76 +47,75 @@
             text-align: center;
             padding: 20px;
         }
+
         .bars {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    background-color: rgba(0, 0, 0, 0.7);
-    transition: all 0.3s ease-in-out;
-    overflow: hidden;
-}
+            position: absolute;
+            top: 0;
+            left: 0; /* Change this to 0 to make it initially visible */
+            width: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+        }
 
         .bar {
-    width: 100px;
-    height: 30px;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    line-height: 30px;
-    margin: 5px;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: all 0.3s ease-in-out;
-}
+            width: 100px;
+            height: 30px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            margin: 5px;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body>
     <!-- HTML content goes here -->
-    
     <h1>Welcome to Under Construction</h1>
     <div class="circle">
         <div class="bars" id="bars">
-        <div class="bar" id="bar1">Play</div>
-        <div class="bar" id="bar2">Options</div>
-        <div class="bar" id="bar3">Credits</div>
+            <div class="bar" id="bar1">Play</div>
+            <div class="bar" id="bar2">Options</div>
+            <div class="bar" id="bar3">Credits</div>
+        </div>
     </div>
-    </div>
-    
+
     <script>
         // JavaScript code goes here
         // Get circle and bars elements
-const circle = document.getElementById('circle');
-const bars = document.getElementById('bars');
+        const circle = document.getElementById('circle');
+        const bars = document.getElementById('bars');
 
-// Add click event listener to the circle
-circle.addEventListener('click', () => {
-    if (bars.classList.contains('visible')) {
-        bars.classList.remove('visible');
-        const barsArray = Array.from(document.querySelectorAll('.bar'));
-        barsArray.forEach((bar, index) => {
-            setTimeout(() => {
-                bar.style.opacity = 0;
-                bar.style.transform = 'translateX(20px)';
-            }, index * 100);
+        // Add click event listener to the circle
+        circle.addEventListener('click', () => {
+            if (bars.classList.contains('visible')) {
+                bars.classList.remove('visible');
+                const barsArray = Array.from(document.querySelectorAll('.bar'));
+                barsArray.forEach((bar, index) => {
+                    setTimeout(() => {
+                        bar.style.opacity = 0;
+                        bar.style.transform = 'translateX(20px)';
+                    }, index * 100);
+                });
+            } else {
+                bars.classList.add('visible');
+                const barsArray = Array.from(document.querySelectorAll('.bar'));
+                barsArray.forEach((bar, index) => {
+                    setTimeout(() => {
+                        bar.style.opacity = 1;
+                        bar.style.transform = 'translateX(0)';
+                    }, index * 100);
+                });
+            }
         });
-    } else {
-        bars.classList.add('visible');
-        const barsArray = Array.from(document.querySelectorAll('.bar'));
-        barsArray.forEach((bar, index) => {
-            setTimeout(() => {
-                bar.style.opacity = 1;
-                bar.style.transform = 'translateX(0)';
-            }, index * 100);
-        });
-    }
-});
-      
     </script>
 </body>
 </html>
