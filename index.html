@@ -24,6 +24,32 @@
             }
         }
 
+        .circle {
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.5); /* Black circle with 50% transparency */
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Additional CSS for content */
+        h1 {
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
         /* Additional CSS for content */
         h1 {
             color: white;
@@ -34,7 +60,12 @@
 </head>
 <body>
     <!-- HTML content goes here -->
-
+    
+    <h1>Welcome to Under Construction</h1>
+    <div class="circle">
+        <img src="your-image.png" alt="Image">
+    </div>
+    
     <script>
         // JavaScript code goes here
       
