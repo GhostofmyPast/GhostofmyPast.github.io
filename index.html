@@ -96,14 +96,25 @@ const bars = document.getElementById('bars');
 
 // Add click event listener to the circle
 circle.addEventListener('click', () => {
-    bars.classList.toggle('visible');
-    const barsArray = Array.from(document.querySelectorAll('.bar'));
-    barsArray.forEach((bar, index) => {
-        setTimeout(() => {
-            bar.style.opacity = bars.classList.contains('visible') ? 1 : 0;
-            bar.style.transform = bars.classList.contains('visible') ? 'translateX(0)' : 'translateX(20px)';
-        }, index * 100);
-    });
+    if (bars.classList.contains('visible')) {
+        bars.classList.remove('visible');
+        const barsArray = Array.from(document.querySelectorAll('.bar'));
+        barsArray.forEach((bar, index) => {
+            setTimeout(() => {
+                bar.style.opacity = 0;
+                bar.style.transform = 'translateX(20px)';
+            }, index * 100);
+        });
+    } else {
+        bars.classList.add('visible');
+        const barsArray = Array.from(document.querySelectorAll('.bar'));
+        barsArray.forEach((bar, index) => {
+            setTimeout(() => {
+                bar.style.opacity = 1;
+                bar.style.transform = 'translateX(0)';
+            }, index * 100);
+        });
+    }
 });
       
     </script>
